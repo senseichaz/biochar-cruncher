@@ -1,10 +1,10 @@
 import os
 import math
 import urllib2
-
+import csv
+import numpy as np
 # retrieve davis .csv database
 url = 'http://biochar.ucdavis.edu/files/data/data.csv';
-
 
 file_name = url.split('/')[-1]
 u = urllib2.urlopen(url)
@@ -28,3 +28,23 @@ while True:
     print status,
 
 f.close()
+
+# data = np.genfromtxt('data.csv', delimiter=',')
+# # Transpose data if needs be
+# data = np.transpose(data)
+
+f = open("data.csv", 'rb')
+reader = csv.reader(f)
+headers = reader.next()
+
+column = {}
+for h in headers:
+    column[h] = []
+    
+for row in reader:
+    for h, v in zip(headers, row):
+        column[h].append(v)
+
+print headers
+
+print column['Biochar Name']
