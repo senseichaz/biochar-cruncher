@@ -45,6 +45,9 @@ for h in headers:
 for row in reader:
     for h, v in zip(headers, row):
         column[h].append(v)
+        
+# ask user for prompt of variable comparison?
+# exp 1 = temp, 2 = ash...etc
 
 
 # redefining of variables
@@ -57,7 +60,7 @@ o = column[headers[16]]
 ph = column[headers[17]] 
 
 
-# tedious replacement of empty variables
+# tedious replacement of empty variables (could loop this...)
 for i in range(len(t)):
     if t[i] == '':
         t[i] = np.nan
@@ -76,13 +79,20 @@ for i in range(len(t)):
     if ph[i] == '':
         ph[i] = np.nan
 
-# tedious changing from string to np array of floats
+# tedious changing from string to np array of floats (could loop this...)
 t = np.array(t)
 t = t.astype(np.float)
-
 ash = np.array(ash)
 ash = ash.astype(np.float)
+c = np.array(c)
+c = c.astype(np.float)
+n = np.array(n)
+n = n.astype(np.float)
+h = np.array(h)
+h = h.astype(np.float)
+o = np.array(o)
+o = o.astype(np.float)
+ph = np.array(ph)
+ph = ph.astype(np.float)
 
 print ph
-
-
