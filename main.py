@@ -51,7 +51,7 @@ t = column["Temperature (C)"]
 ash = column["Total Ash Content (%)"]
 emp = ''
 
-print t
+
 
 for i in range(len(t)):
     if t[i] == emp:
@@ -59,6 +59,11 @@ for i in range(len(t)):
     if ash[i] == emp:
         ash[i] = np.nan
 
+t = np.array(t)
+t = t.astype(np.float)
+
+ash = np.array(ash)
+ash = ash.astype(np.float)
 
 
-print t
+
