@@ -3,6 +3,7 @@ import math
 import urllib2
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
 # from pylab import figure, axes, pie, title, show
 
 
@@ -44,4 +45,20 @@ for row in reader:
     for h, v in zip(headers, row):
         column[h].append(v)
 
-print headers
+
+
+t = column["Temperature (C)"]
+ash = column["Total Ash Content (%)"]
+emp = ''
+
+print t
+
+for i in range(len(t)):
+    if t[i] == emp:
+        t[i] = np.nan
+    if ash[i] == emp:
+        ash[i] = np.nan
+
+
+
+print t
