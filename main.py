@@ -37,6 +37,7 @@ f = open("data.csv", 'rb')
 reader = csv.reader(f)
 headers = reader.next()
 
+# rearrange to matrix of columns
 column = {}
 for h in headers:
     column[h] = []
@@ -46,24 +47,42 @@ for row in reader:
         column[h].append(v)
 
 
+# redefining of variables
+t = column[headers[10]]
+ash = column[headers[11]]
+c = column[headers[13]]
+n = column[headers[14]]
+h = column[headers[15]]
+o = column[headers[16]]
+ph = column[headers[17]] 
 
-t = column["Temperature (C)"]
-ash = column["Total Ash Content (%)"]
-emp = ''
 
-
-
+# tedious replacement of empty variables
 for i in range(len(t)):
-    if t[i] == emp:
+    if t[i] == '':
         t[i] = np.nan
-    if ash[i] == emp:
+    if ash[i] == '':
         ash[i] = np.nan
+    if ash[i] == '':
+        ash[i] = np.nan
+    if c[i] == '':
+        c[i] = np.nan
+    if n[i] == '':
+        n[i] = np.nan
+    if h[i] == '':
+        h[i] = np.nan
+    if o[i] == '':
+        o[i] = np.nan
+    if ph[i] == '':
+        ph[i] = np.nan
 
+# tedious changing from string to np array of floats
 t = np.array(t)
 t = t.astype(np.float)
 
 ash = np.array(ash)
 ash = ash.astype(np.float)
 
+print ph
 
 

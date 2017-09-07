@@ -1,0 +1,1 @@
+pick parameters from a script to compare and perform gradient descent with
